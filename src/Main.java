@@ -10,7 +10,11 @@ public class Main{
         DrawPanel stuff = new DrawPanel();
         BallPanel ball1 = new BallPanel();
 
+        JButton addNewBall = new JButton("Hello");
+        ball1.add(addNewBall);
+
         guess.add(ball1);
         guess.setVisible(true);
+
     }
 }
