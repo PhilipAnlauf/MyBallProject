@@ -12,6 +12,7 @@ public class Main{
 
         JButton addNewBall = new JButton("Hello");
         ball1.add(addNewBall);
+        System.out.println("Added a hello button");
 
         guess.add(ball1);
         guess.setVisible(true);
