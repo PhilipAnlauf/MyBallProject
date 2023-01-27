@@ -8,8 +8,8 @@ public class Ball{
     private int ySpeed;
   
     Ball(){
-        x = (int)(Math.random()*90+10);
-        y = (int)(Math.random()*90+10);
+        x = (int)(Math.random()*490+10);
+        y = (int)(Math.random()*490+10);
         size = (int)(Math.random()*50+5);
         xSpeed = (int)(Math.random()*8+2);
         ySpeed = 10;
