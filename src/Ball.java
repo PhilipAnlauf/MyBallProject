@@ -6,13 +6,15 @@ public class Ball{
     private int size;
     private int xSpeed;
     private int ySpeed;
+  
     Ball(){
-        x = 0;
-        y = 0;
-        size = (int)(Math.random()*200+5);
+        x = (int)(Math.random()*90+10);
+        y = (int)(Math.random()*90+10);
+        size = (int)(Math.random()*50+5);
         xSpeed = (int)(Math.random()*8+2);
         ySpeed = 10;
     }
+  
     public void drawBall(Graphics newBall){
         newBall.fillOval(x,y,size,size);
     }
