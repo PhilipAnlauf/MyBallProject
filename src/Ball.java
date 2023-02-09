@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 public class Ball{
     private int x;
@@ -6,17 +7,21 @@ public class Ball{
     private int size;
     private int xSpeed;
     private int ySpeed;
-  
-    Ball(){
-        x = (int)(Math.random()*490+10);
-        y = (int)(Math.random()*490+10);
+    private Color ballColor;
+    public Ball(){
+        x = 250;
+        y = 250;
         size = (int)(Math.random()*50+5);
-        xSpeed = (int)(Math.random()*8+2);
-        ySpeed = 10;
+        xSpeed = (int)(Math.random()*15-15);
+        ySpeed = (int)(Math.random()*15-15);
+        ballColor = new Color((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
+
+
     }
-  
+
     public void drawBall(Graphics newBall){
         newBall.fillOval(x,y,size,size);
+        newBall.setColor(ballColor);
     }
 
     public void moveBall(){
@@ -24,12 +29,23 @@ public class Ball{
         y = y+=ySpeed;
     }
 
-    public void checkBoundries(){
-        if(x>525 || x<-25){
-            xSpeed = xSpeed*-1;
+    void checkBoundries(int inHeight, int inWidth){
+        if(x>(inWidth-size)){
+            xSpeed = (int)(Math.random()*-15-5);
+            ySpeed = (int)(Math.random()*15-15);
         }
-        if(y>525 || y < -25){
-            ySpeed = ySpeed*-1;
+        if(x<0){
+            xSpeed = (int)(Math.random()*15+5);
+            ySpeed = (int)(Math.random()*15-15);
+        }
+
+        if(y>(inHeight-size)){
+            ySpeed = (int)(Math.random()*-15-5);
+            xSpeed = (int)(Math.random()*15-15);
+        }
+        if(y<0){
+            ySpeed = (int)(Math.random()*15+5);
+            xSpeed = (int)(Math.random()*15-15);
         }
     }
 }

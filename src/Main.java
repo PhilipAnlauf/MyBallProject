@@ -1,4 +1,7 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.*;
 
 public class Main{
@@ -8,12 +11,19 @@ public class Main{
         JFrame guess = new JFrame();
         guess.setSize(500,500);
 
-        DrawPanel stuff = new DrawPanel();
         BallPanel ball1 = new BallPanel();
 
-        JButton addNewBall = new JButton("Hello");
-        ball1.add(addNewBall);
-        System.out.println("Added a hello button");
+
+        JButton addButton = new JButton("Add a ball");
+
+        addButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+              ball1.balls.add(new Ball());
+            }
+        });
+
+        ball1.add(addButton);
 
         guess.add(ball1);
         guess.setVisible(true);

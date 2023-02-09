@@ -1,28 +1,29 @@
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.sql.Array;
+import java.util.ArrayList;
 import javax.swing.*;
 public class BallPanel extends JPanel{
-   Ball[] balls = new Ball[20];
-  
+    ArrayList<Ball> balls = new ArrayList<>();
+
+    int height;
+    int width;
     public BallPanel(){
         setFocusable(true);
         setBackground(Color.RED);
-        for(int i = 0; i<20; i++){
-          balls[i] = new Ball();
-        }
     }
-   
 
     @Override
     protected void paintComponent(Graphics g){
+        height = getHeight();
+        width = getWidth();
         super.paintComponent(g);
-        for(int i = 0; i<20; i++){
-          balls[i].moveBall();
-          balls[i].drawBall(g);
-          balls[i].checkBoundries();
+        for(Ball item: balls) {
+            item.moveBall();
+            item.drawBall(g);
+            item.checkBoundries(height, width);
         }
-
         try{
             Thread.sleep(10);
         }
