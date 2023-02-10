@@ -11,7 +11,7 @@ public class Ball{
     public Ball(){
         x = 250;
         y = 250;
-        size = (int)(Math.random()*50+5);
+        size = (int)(Math.random()*75+25);
         xSpeed = (int)(Math.random()*15-15);
         ySpeed = (int)(Math.random()*15-15);
         ballColor = new Color((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
@@ -22,6 +22,12 @@ public class Ball{
     public void drawBall(Graphics newBall){
         newBall.fillOval(x,y,size,size);
         newBall.setColor(ballColor);
+    }
+
+    public boolean checkIfClicked(int inx, int iny){
+        int xbound = x+size;
+        int ybound = y+size;
+        return(x<=inx && inx <= xbound && y<=iny && iny <= ybound);
     }
 
     public void moveBall(){

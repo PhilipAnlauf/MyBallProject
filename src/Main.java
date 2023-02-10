@@ -13,13 +13,12 @@ public class Main{
 
         BallPanel ball1 = new BallPanel();
 
-
         JButton addButton = new JButton("Add a ball");
 
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-              ball1.balls.add(new Ball());
+                ball1.balls.add(new Ball());
             }
         });
 

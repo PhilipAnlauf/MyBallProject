@@ -4,6 +4,7 @@ import java.awt.event.KeyListener;
 import java.sql.Array;
 import java.util.ArrayList;
 import javax.swing.*;
+import java.awt.event.*;
 public class BallPanel extends JPanel{
     ArrayList<Ball> balls = new ArrayList<>();
 
@@ -12,6 +13,17 @@ public class BallPanel extends JPanel{
     public BallPanel(){
         setFocusable(true);
         setBackground(Color.RED);
+
+        this.addMouseListener(new MouseAdapter(){
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                for(Ball item: balls) {
+                    if(item.checkIfClicked(e.getX(), e.getY())){
+                        balls.remove(item);
+                    }
+                }
+            }
+        });
     }
 
     @Override
